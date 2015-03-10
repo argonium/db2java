@@ -1,0 +1,51 @@
+<project name="DB2Java" default="dist" basedir=".">
+
+<!-- This is the Ant build script for the DB2Java application.
+     Written using Ant 1.6.1 (http://ant.apache.org/).
+-->
+
+  <property name="app.name"       value="db2java"/>
+  <property name="src.dir"        value="src"/>
+  <property name="deploy.home"    value="./classes"/>
+  <property name="dist.jar"       value="${app.name}.jar"/>
+  
+  <!-- Create the output directories for the class files -->
+  <target name="prepare" description="Create classes directory">
+    <mkdir  dir="${deploy.home}"/>
+  </target>
+
+  <!-- Delete the output directories for the class files -->
+  <target name="clean" description="Delete classes directory">
+    <delete dir="${deploy.home}"/>
+  </target>
+
+  <!-- Compile the source code (in 'src') and store in 'classes' -->
+  <target name="compile" depends="prepare" description="Compile the source code">
+    <javac srcdir="${src.dir}" destdir="${deploy.home}"
+           classpath="${deploy.home}"
+           debug="off" optimize="off" deprecation="off"/>
+  </target>
+
+  <!-- Generate the jar file -->
+  <target name="dist" depends="compile" description="Generate the jar file">
+    <jar destfile="./${dist.jar}">
+      <fileset dir="${deploy.home}"/>
+      <manifest>
+        <attribute name="Built-By" value="Mike Wallace"/>
+        <attribute name="Main-Class" value="io.miti.db2java.App"/>
+      </manifest>
+    </jar>
+  </target>
+  
+  <!-- Generate the zip file for the app -->
+  <target name="zipapp" depends="dist" description="Generate the zip file">
+    <zip basedir="." destfile="./${app.name}.zip"
+    includes="${dist.jar}, ${app.name}.prop" />
+  </target>
+  
+  <!-- Generate the source zip file -->
+  <target name="zipsource" depends="compile" description="Generate the source zip file">
+    <zip basedir="." destfile="./${app.name}-src.zip"
+     includes="build.xml, ${app.name}.prop, ${src.dir}/**" />
+  </target>
+</project>

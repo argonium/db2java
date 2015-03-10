@@ -1,0 +1,22 @@
+# Properties file for DBDump
+
+# The JDBC URL for the database
+# This is a sample MySQL string
+# jdbc.url=jdbc:mysql://localhost:3306/ttpdemo?user=root&password=
+# Hitting an MS Access file
+jdbc.url=jdbc:odbc:Driver={Microsoft Access Driver (*.mdb)};DBQ=/progra~1/usda-h~1/sr19se~1/sr.mdb;DriverID=22;READONLY=true}
+
+# The JDBC driver class
+# MySQL driver
+# jdbc.driver=com.mysql.jdbc.Driver
+# JDBC/ODBC driver (used for hitting MS Access files)
+jdbc.driver=sun.jdbc.odbc.JdbcOdbcDriver
+
+# The output directory (generated Java files are written here)
+output.dir=out
+
+# The package name
+output.package=io.miti.db2java
+
+# Whether to write out the Fetch information
+write.fetch=0
