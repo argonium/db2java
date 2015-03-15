@@ -1,4 +1,4 @@
-# db2java
+# DB2Java
 DB2Java is a standalone Java application that makes it easy to generate Java files (class definitions) based on the tables in a database you specify. For each table, DB2Java will generate a .java file, with the class name the same as the table name. Each column in the table will have a corresponding member variable in the .java file.
 
 To run the program, Java 5 or later is required. Use this command to execute the application:
