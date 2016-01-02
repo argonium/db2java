@@ -224,6 +224,10 @@ public final class TableColumn
       case COL_STRING:
         type = "String";
         break;
+        
+      case COL_BYTE:
+    	  type = "Boolean";
+    	  break;
       
       default:
         throw new RuntimeException("Unknown column type: " +
@@ -273,6 +277,10 @@ public final class TableColumn
       case COL_STRING:
         type = "String";
         break;
+        
+      case COL_BYTE:
+    	  type = "boolean";
+    	  break;
       
       default:
         throw new RuntimeException("Unknown column type: " +

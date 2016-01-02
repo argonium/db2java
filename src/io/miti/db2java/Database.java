@@ -172,7 +172,7 @@ public final class Database
     // Try to load the driver
     try
     {
-      Class.forName("com.mysql.jdbc.Driver").newInstance();
+      Class.forName("org.h2.Driver").newInstance();
       
       // If we reach this point, it was successful
       bResult = true;

@@ -103,7 +103,7 @@ public final class App
     Connection conn = null;
     try
     {
-      conn = DriverManager.getConnection(url);
+      conn = DriverManager.getConnection(url, "sa", "");
     }
     catch (SQLException e)
     {
